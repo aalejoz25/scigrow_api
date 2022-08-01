@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f5b8cee9-ed81-4d93-a0f3-1bda27bf9cca" name="ApacheLocal" url="http://localhost">
+        <fileTransfer mountedRoot="C:\xampp\htdocs\scigrow_api" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
