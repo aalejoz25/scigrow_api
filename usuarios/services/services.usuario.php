@@ -3,7 +3,6 @@ include_once ('../../conf/cors.php');
 
 $request_body = file_get_contents('php://input');
 $data = json_decode($request_body);
-
 $tipo = $data->{'tip'};
 
 if ($tipo == 'registrarUsuario') {
@@ -20,7 +19,9 @@ if ($tipo == 'registrarUsuario') {
         echo json_encode(['No puede crear otro usuario administrador']);
     } else {
         $u = new Usuario();
-        echo json_encode($u->crearUsuario($userTypeId, $userName, $password, $email, $first_name, $lastName, $birthDate));
+        $response = $u->crearUsuario($userTypeId, $userName, $password, $email, $first_name, $lastName, $birthDate);
+        $response = json_encode(array('addeduser'=>$response));
+        echo $response;
     }
 } elseif ($tipo == 'borrarUsuario') {
     include_once('../clases/Usuario.php');
