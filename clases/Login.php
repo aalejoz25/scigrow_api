@@ -29,9 +29,12 @@ class Login extends Database
     }
 
     public function isUser($data){
-        if (($data[0]['user_name']==$this->_user) and ($data[0]['password']==$this->_pass)) {
-            return true;
-        }else{
+        if (count($data)<>0){
+            if (($data[0]['user_name']==$this->_user) and ($data[0]['password']==$this->_pass)) {
+                return true;
+            }
+        }
+        else{
             return false;
         }
     }

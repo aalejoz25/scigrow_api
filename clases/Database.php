@@ -1,5 +1,6 @@
 <?php
-include_once "../inc/config.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/scigrow_api/conf/config.php";
+
 class Database
 {
     protected $connection = null;
@@ -21,10 +22,15 @@ class Database
     {
         try {
             $stmt = $this->executeStatement($query, $params);
-            $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+            $qry_array = explode(" ", $query);
+            if ($qry_array[0] == "SELECT") {
+                $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+                $stmt->close();
+                return $result;
+            }
             $stmt->close();
+            return true;
 
-            return $result;
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }

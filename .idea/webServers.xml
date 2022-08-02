@@ -5,6 +5,13 @@
       <webServer id="f5b8cee9-ed81-4d93-a0f3-1bda27bf9cca" name="ApacheLocal" url="http://localhost">
         <fileTransfer mountedRoot="C:\xampp\htdocs\scigrow_api" accessType="MOUNT" port="0" />
       </webServer>
+      <webServer id="49792f56-9b41-49b4-81e1-a765808598ad" name="000webhost" url="http://files.000webhost.com">
+        <fileTransfer rootFolder="/public_html/scigrow_api" host="files.000webhost.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
