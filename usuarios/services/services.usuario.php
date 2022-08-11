@@ -30,7 +30,9 @@ if ($tipo == 'registrarUsuario') {
     if ($userName == "admin") {
         echo json_encode(['No puede borrar el usuario administrador']);
     } else {
-        echo json_encode($u->borrarUsuario($userName));
+        $response = $u->borrarUsuario($userName);
+        echo json_encode(array("deleted"=>$response));
     }
+
 
 }

@@ -1,5 +1,5 @@
 <?php
-include_once ('../conf/cors.php');
+include_once('../conf/cors.php');
 include_once('../clases/Login.php');
 
 $request_body = file_get_contents('php://input');
@@ -17,10 +17,10 @@ if ($user != null and $password != null) {
     $data = $Login->data;
 
     if ($Login->isUser($data)) {
-        $response= array('isLogged'=>'TRUE','user_type'=>$data[0]['user_type_id']);
+        $response = array('isLogged' => 'TRUE', 'user_type' => $data[0]['user_type_id'], 'user_id' => $data[0]['user_id']);
         echo json_encode($response);
     } else {
-        $response= array('isLogged'=>'FALSE');
+        $response = array('isLogged' => 'FALSE');
         echo json_encode($response);
     }
 }
