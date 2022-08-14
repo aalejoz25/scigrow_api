@@ -1,8 +1,7 @@
 <?php
-include_once 'Database.php';
+include_once "../../clases/Database.php";
 
 class Proyecto extends Database
-
 
 {
     public function createProject($user_id, $projectName, $projectDes)
@@ -11,6 +10,5 @@ class Proyecto extends Database
         $result = $this->select($sql);
         return $result;
     }
-
 
 }
